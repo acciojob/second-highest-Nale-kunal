@@ -9,8 +9,23 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
-			
+			// if array has less than 2 elements
+			if (arr.length < 2) return -Infinity;
+
+			// convert to numbers in case inputs are strings
+			arr = arr.map(Number);
+
+			// make unique
+			let unique = [...new Set(arr)];
+
+			// if all elements same
+			if (unique.length < 2) return -Infinity;
+
+			// sort ascending
+			unique.sort((a, b) => a - b);
+
+			// second highest = second last element
+			return unique[unique.length - 2];
 		}
 
 		function Main() {
@@ -24,8 +39,7 @@
 		Main();
 	</script>
 
-    <script type="text/javascript" src="./script.js">
-</script>
+    <script type="text/javascript" src="./script.js"></script>
 
 </body>
 
